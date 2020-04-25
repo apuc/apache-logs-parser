@@ -9,7 +9,7 @@
 namespace lib;
 
 
-class ApacheParserError extends ApacheParser
+class ApacheParserError extends ApacheParser implements IApacheParser
 {
 
     /**
@@ -17,6 +17,7 @@ class ApacheParserError extends ApacheParser
      */
     public function parse()
     {
+        parent::parse();
         if ($this->file){
             foreach ($this->file as $item){
                 preg_match_all('/\[(.+?)\]/', $item, $params,PREG_SET_ORDER);

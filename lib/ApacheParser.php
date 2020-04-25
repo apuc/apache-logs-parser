@@ -21,7 +21,10 @@ class ApacheParser
         $this->loadFile();
     }
 
-    public function parse(){}
+    public function parse()
+    {
+        $this->logs = [];
+    }
 
     /**
      * @return array
@@ -29,6 +32,18 @@ class ApacheParser
     public function getLogs()
     {
         return $this->logs;
+    }
+
+    /**
+     * @param \Closure $closure
+     */
+    public function each(\Closure $closure)
+    {
+        if ($this->logs){
+            foreach ($this->logs as $log){
+                call_user_func_array($closure, [$log]);
+            }
+        }
     }
 
     /**

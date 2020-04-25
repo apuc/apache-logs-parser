@@ -9,7 +9,7 @@
 namespace lib;
 
 
-class ApacheParserAccess extends ApacheParser
+class ApacheParserAccess extends ApacheParser implements IApacheParser
 {
 
     public function parse()
