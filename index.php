@@ -12,8 +12,9 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/lib/ApacheParser.php';
 require_once __DIR__ . '/lib/IApacheParser.php';
 require_once __DIR__ . '/lib/ApacheParserError.php';
+require_once __DIR__ . '/lib/ApacheParserAccess.php';
 
-$file = new \lib\ApacheParserError(__DIR__ . '/error.log');
+$file = new \lib\ApacheParserAccess(__DIR__ . '/access.log');
 
 $file->parse()->each(function ($log){
     echo "<pre>";

@@ -20,6 +20,9 @@ class ApacheParserError extends ApacheParser implements IApacheParser
         parent::parse();
         if ($this->file){
             foreach ($this->file as $item){
+                if(!$item){
+                    continue;
+                }
                 preg_match_all('/\[(.+?)\]/', $item, $params,PREG_SET_ORDER);
                 $res = preg_replace('/\[.*\]/', '', $item);
 
